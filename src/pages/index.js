@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import Layout from "../components/layout"
 import Header from "../components/Header"
@@ -9,15 +9,20 @@ import Footer from "../components/Footer"
 import "../styles/main.scss"
 import { graphql } from "gatsby"
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <Header />
-    <Work projectData={data.allMarkdownRemark.nodes} />
-    <About />
-    <Skills />
-    <Footer />
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+  useEffect(() => {
+    document.title = "Portfolio"
+  }, [])
+  return (
+    <Layout>
+      <Header />
+      <Work projectData={data.allMarkdownRemark.nodes} />
+      <About />
+      <Skills />
+      <Footer />
+    </Layout>
+  )
+}
 
 export default IndexPage
 
