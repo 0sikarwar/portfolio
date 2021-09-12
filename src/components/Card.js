@@ -50,7 +50,7 @@ const Card = ({ heading, stack, thumbnail, projectLink, btnText, github }) => {
                 {" " + url}
               </a>
               {repoUrls.length > 1 && repoUrls.length - 1 > index && (
-                <strong>|</strong>
+                <strong key={index + "pipe"}> |</strong>
               )}
             </>
           ))}
